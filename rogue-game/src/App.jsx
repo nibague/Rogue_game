@@ -1,13 +1,13 @@
 import './App.css';
-import Name from './components/Name';
+import ReactRogue from './components/ReactRogue';
 
-function App() {
-  return (
-    <div className='bg-gray-500 text-white m-4 p-10'>
-      <Name/>
+const App =() => 
+  (
+    <div className='bg-gray-100 text-white m-4 p-10'>
+      <ReactRogue width={40} height={40} tilesize={26} />
     </div>
   );
-}
+
 
 
 export default App;
