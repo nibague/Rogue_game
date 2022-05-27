@@ -39,5 +39,12 @@ class InputManager {
         }
     }
 
+    bindKeys(){
+        document.addEventListener('keydown', this.handlekeys);
+
+    };
+    unbindKeys(){
+        document.removeEventListener('keydown', this.handlekeys);
+    };
 
 }
