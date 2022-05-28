@@ -1,9 +1,9 @@
 class InputManager {
     //list of functions to every subscriber
-    observer = []
+    observers = [];
 
     subscribe(fn){
-        this.observer.push(fn)
+        this.observers.push(fn);
 
     }
     unsubscribe(fn){
@@ -14,37 +14,39 @@ class InputManager {
         this.observers.forEach(subscriber =>  subscriber(action, data));
             
     }
-    handlekeys = e => {
+    handleKeys = e => {
         e.preventDefault();
-        switch (e.KeyCode){
+        switch (e.keyCode){
             case 37:
                 //left movement
-                this.droadcast('move', {x:-1, y:0});
+                this.broadcast('move', {x:-1, y:0});
                 break;
             case 38:
                 //right movement
-                this.droadcast('move', {x:0, y:-1});
+                this.broadcast('move', {x:0, y:-1});
                 break;
             case 39:
                 //up movement
-                this.droadcast('move', {x:1, y:0})
+                this.broadcast('move', {x:1, y:0});
                 break;
             case 40:
                 // down movement
-                this.droadcast('move', {x:0, y:1})
+                this.broadcast('move', {x:0, y:1});
                 break;
             default:
                 break;
 
         }
-    }
+    };
 
     bindKeys(){
-        document.addEventListener('keydown', this.handlekeys);
+        document.addEventListener('keydown', this.handleKeys);
 
     };
     unbindKeys(){
-        document.removeEventListener('keydown', this.handlekeys);
+        document.removeEventListener('keydown', this.handleKeys);
     };
 
 }
+
+export default InputManager;
