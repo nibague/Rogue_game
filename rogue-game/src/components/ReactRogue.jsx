@@ -15,18 +15,19 @@ const ReactRogue = ({width, height, tilesize}) => {
     const handleInput = (action, data) => {
         console.log(`handle input: ${action}:${JSON.stringify(data)}`);
         let newWorld = new World();
-        Object.assign(newWorld, World);
+        Object.assign(newWorld, world);
         newWorld.movePlayer(data.x, data.y);
         setWorld(newWorld);
     };
     useEffect(()=>{
         console.log('create Map');
         let newWorld = new World();
-        Object.assign(newWorld, World);
+        Object.assign(newWorld, world);
         newWorld.createCellularMap();
+        newWorld.moveToSpace(world.player);
         setWorld(newWorld);
     }, []);
-    
+
     useEffect(()=>{
         console.log('Bind input');
         inputManager.bindKeys();
