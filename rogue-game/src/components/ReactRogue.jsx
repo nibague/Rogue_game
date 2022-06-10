@@ -26,6 +26,7 @@ const ReactRogue = ({width, height, tilesize}) => {
         newWorld.createCellularMap();
         setWorld(newWorld);
     }, []);
+    
     useEffect(()=>{
         console.log('Bind input');
         inputManager.bindKeys();
